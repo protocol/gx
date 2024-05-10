@@ -156,6 +156,7 @@ func loadFile(fname string) (map[string]interface{}, error) {
 	if err != nil {
 		return nil, err
 	}
+	defer fi.Close()
 
 	err = json.NewDecoder(fi).Decode(&cfg)
 	if err != nil {
